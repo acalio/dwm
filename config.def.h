@@ -32,7 +32,7 @@ typedef struct {
 	const char *name;
 	const void *cmd;
 } Sp;
-const char *spcmd1[] = {"st", "-n", "spterm", "-g", "120x34", NULL };
+const char *spcmd1[] = {"st", "-n", "spterm", "-g", "120x34","-e", "tmux", NULL };
 const char *spcmd2[] = {"st", "-n", "spfm", "-g", "144x41", "-e", "ranger", NULL };
 const char *spcmd3[] = {"keepassxc", NULL };
 static Sp scratchpads[] = {
@@ -84,8 +84,8 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static char dmenul[3] = "10";
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, "-l", dmenul, NULL };
-static const char *termcmd[]  = { "urxvt", NULL };
-
+/* static const char *termcmd[]  = { "urxvt", NULL }; */
+static const char *termcmd[] = {"tabbed", "-c", "-r", "2", "st", "-w", "''", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
